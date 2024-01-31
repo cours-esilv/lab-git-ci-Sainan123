@@ -24,7 +24,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+          # Publie les résultats de test
+    - name: Publish Unit Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v1
+      if: always()
+      with:
+        files: target/**/*.xml
+
     - name: Run a script
       run: |
-        echo "Trigger is ${{ github.event_name }}, running on branch ${{ github.ref }}"
-        echo "This is a step message."
+        echo "Trriger: Defines the conditions under which the actions described in this pipeline will be carried out."
+        echo "steps**: The description of the steps to be automated."
