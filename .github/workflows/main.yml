@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v2  # 只需要检出一次
 
     - name: Set up JDK 8
       uses: actions/setup-java@v2
@@ -20,18 +20,16 @@ jobs:
 
     - name: Build with Maven
       run: mvn --batch-mode --update-snapshots package
-      
-    - name: Checkout code
-      uses: actions/checkout@v2
 
-          # Publie les résultats de test
+    # 确保您的测试结果文件路径是正确的
     - name: Publish Unit Test Results
       uses: EnricoMi/publish-unit-test-result-action@v1
       if: always()
       with:
-        files: target/test2.3/test-results.xml
+        files: target/test2.3/test-results.xml  # 假设测试结果存放在此目录
 
+    
     - name: Run a script
       run: |
-        echo "Trriger: Defines the conditions under which the actions described in this pipeline will be carried out."
-        echo "steps**: The description of the steps to be automated."
+        echo "Trigger: Defines the conditions under which the actions described in this pipeline will be carried out."
+        echo "Steps: The description of the steps to be automated."
