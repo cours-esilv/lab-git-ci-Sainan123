@@ -1,0 +1,19 @@
+name: output two messages Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Run a script
+      run: |
+        echo "Trigger is ${{ github.event_name }}, running on branch ${{ github.ref }}"
+        echo "This is a step message."
