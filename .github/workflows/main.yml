@@ -30,7 +30,7 @@ jobs:
         if: always()
         with:
             files: |
-              target/**/*.xml
+              target/aa/a.xml
              
         
     
