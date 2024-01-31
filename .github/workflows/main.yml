@@ -29,7 +29,7 @@ jobs:
       uses: EnricoMi/publish-unit-test-result-action@v1
       if: always()
       with:
-        files: target/test2.3/testresults.xml
+        files: target/test2.3/test-results.xml
 
     - name: Run a script
       run: |
